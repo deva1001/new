@@ -4,6 +4,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Default from './components/home.js';
+import MainPage from './components/Mainpage.js';
 import HeightAndWeight from './components/HeightAndWeight.js';
 import Home1 from './components/home1.js';
 import Home from './components/home.js';
@@ -12,6 +13,7 @@ import Contact from './components/contact.js';
 import Service from './components/service.js';
 import Login from './components/login.js';
 import Options from './components/options.js';
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Options" element={<Options />} />
+        <Route path="/MainPage" element={<MainPage />} />
         
       </Routes>
     </Router>

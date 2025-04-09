@@ -32,48 +32,52 @@ const HeightAndWeight = () => {
 
     const fullData = { ...formData, DCI: DCI.toFixed(2) };
     localStorage.setItem('userData', JSON.stringify(fullData));
-    navigate('/mainpage');
+    navigate('/MainPage');
   };
 
   return (
-    <div>
+    <div className="form-page">
       <div className="navbar">
-        <button className="back-button" onClick={() => navigate('/login')}>&#8592; Back</button>
+        <button className="back-button" onClick={() => navigate('/login')}>&larr; Back</button>
       </div>
-
-      <div className="container">
-        <h2>User Information Form</h2>
+  
+      <div className="form-container">
+        <h2 className="form-title">User Information Form</h2>
+  
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="height">Height (cm):</label>
             <input type="number" id="height" name="height" required onChange={handleChange} />
           </div>
+  
           <div className="form-group">
             <label htmlFor="weight">Weight (kg):</label>
             <input type="number" id="weight" name="weight" required onChange={handleChange} />
           </div>
+  
           <div className="form-group">
             <label htmlFor="age">Age:</label>
             <input type="number" id="age" name="age" required onChange={handleChange} />
           </div>
+  
           <div className="form-group">
-            <label>Goal:</label><br />
-            <input type="radio" id="weightGain" name="goal" value="gain" required onChange={handleChange} />
-            <label htmlFor="weightGain">Weight Gain</label><br />
-            <input type="radio" id="weightLoss" name="goal" value="loss" required onChange={handleChange} />
-            <label htmlFor="weightLoss">Weight Loss</label>
+            <label>Goal:</label>
+            <div>
+              <input type="radio" id="gain" name="goal" value="gain" required onChange={handleChange} />
+              <label htmlFor="gain"><strong>Weight Gain</strong></label>
+            </div>
+            <div>
+              <input type="radio" id="loss" name="goal" value="loss" required onChange={handleChange} />
+              <label htmlFor="loss"><strong>Weight Loss</strong></label>
+            </div>
           </div>
-          <button type="submit">Submit</button>
+  
+          <button type="submit" className="submit-btn">Submit</button>
         </form>
-
-        {dci && (
-          <div id="dci-result" style={{ marginTop: '20px' }}>
-            <h3>Your Daily Calorie Intake (DCI): <span>{dci}</span> kcal</h3>
-          </div>
-        )}
       </div>
     </div>
   );
+  
 };
 
 export default HeightAndWeight;

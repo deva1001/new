@@ -3,127 +3,172 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-}
-
-/* .wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-} */
-.wrapper {
-    display: flex;
-    flex-direction: column; /* Ensures vertical stacking */
-    align-items: center;
-    gap: 20px;
   }
-  .top-section {
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  
+  
+  /* --- Form Section --- */
+  .form-section {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: flex-start; /* align to top */
+    padding: 40px 0; /* add breathing room */
     width: 100%;
-    max-width: 1200px;
   }
-
-.container, .dci-container, .food-intake {
+  
+  
+  
+  .container {
+    width: 400px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    min-width: 300px;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-top: 0;
-}
-
-form {
+    padding: 20px 15px;
+    box-sizing: border-box;
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"], input[type="number"] {
-    padding: 10px;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
     margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    flex: 1 1 45%;
+    min-width: 180px;
+    margin-bottom: 5px;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-}
-
-button {
-    padding: 10px 15px;
+    width: 100%;
+  }
+  
+  button {
+    padding: 8px 12px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button:hover {
+    width: 100%;
+    max-width: 150px;
+    margin-top: 10px;
+  }
+  
+  button:hover {
     background-color: #218838;
-}
-
-.food-intake ul {
+  }
+  
+  /* --- Info Section --- */
+  .info-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+  }
+  
+  .dci-container,
+  .food-intake {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .food-intake ul {
     list-style-type: none;
     padding: 0;
-}
-
-.food-intake ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.dci-container p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.dci-container {
-    flex: 1;
+    margin: 0;
+  }
+  
+  .food-intake ul li {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-}
-
-.suggestions-container {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .delete-icon {
+    color: #ff0000;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .delete-icon:hover {
+    color: #d10000;
+  }
+  
+  /* --- Suggestions Section --- */
+  .suggestions-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px auto;
     width: 80%;
-}
-
-.suggestions-container h2 {
+    max-width: 1200px;
+  }
+  
+  .suggestions-container h2 {
     text-align: center;
     color: #333;
-}
-
-.suggestions-container #suggestions {
+  }
+  
+  #suggestions {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-}
-
-.suggestion {
+  }
+  
+  .suggestion {
     background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -131,66 +176,8 @@ button:hover {
     padding: 15px;
     width: 200px;
     text-align: center;
-}
-/* Add these styles to MainPage.css */
-
-.danger-dialog {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ff4c4c;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.danger-dialog h2 {
-    margin-top: 0;
-}
-
-.danger-dialog button {
-    background-color: white;
-    color: #ff4c4c;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.danger-dialog button:hover {
-    background-color: #ffe5e5;
-}
-/* Add these styles to MainPage.css */
-
-.food-intake ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.delete-icon {
-    cursor: pointer;
-    color: #ff4c4c;
-    margin-left: 10px;
-}
-
-.delete-icon:hover {
-    color: #ff0000;
-}
-.delete-icon {
-    color: #ff0000;
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    vertical-align: middle;
-}
-
-.delete-icon:hover {
-    color: #d10000;
-}
+  }
+  .container {
+    max-height: 400px;
+  }
+  

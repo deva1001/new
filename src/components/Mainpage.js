@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import '../styles/MainPage.css';
 
 function MainPage() {
@@ -69,23 +68,9 @@ function MainPage() {
       };
       setEntries([...entries, newEntry]);
       setTotalCalories(prev => prev + calories);
-    //   if (totalCalories + calories >= DCI) {
-    //     if (userGoal === 'loss') showDangerDialog();
-    //     else triggerCelebration();
-    //   }
       setFoodName('');
       setFoodAmount('');
     }
-  };
-
-//   const triggerCelebration = () => {
-//     const audio = new Audio('/ConfettiParty.mp3');
-//     audio.play();
-//     confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
-//   };
-
-  const showDangerDialog = () => {
-    alert("⚠️ You're exceeding your daily calorie intake!");
   };
 
   const deleteFood = (index) => {
@@ -96,31 +81,41 @@ function MainPage() {
 
   return (
     <div className="wrapper">
-      <div className="top-section">
-        <div className="dci-container">
-          <h2>Your Daily Calorie Target</h2>
-          <p><span>{DCI}</span> kcal</p>
-        </div>
-
+      <div className="form-section">
         <div className="container">
           <h1>Food Logger</h1>
           <form onSubmit={handleSubmit}>
-            <label>Food Name:</label>
-            <input
-              type="text"
-              value={foodName}
-              onChange={(e) => setFoodName(e.target.value)}
-              required
-            />
-            <label>Amount (grams):</label>
-            <input
-              type="number"
-              value={foodAmount}
-              onChange={(e) => setFoodAmount(e.target.value)}
-              required
-            />
-            <button type="submit">Log Food</button>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Food Name:</label>
+                <input
+                  type="text"
+                  value={foodName}
+                  onChange={(e) => setFoodName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Amount (grams):</label>
+                <input
+                  type="number"
+                  value={foodAmount}
+                  onChange={(e) => setFoodAmount(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="form-row center">
+              <button type="submit">Log Food</button>
+            </div>
           </form>
+        </div>
+      </div>
+
+      <div className="info-section">
+        <div className="dci-container">
+          <h2>Your Daily Calorie Target</h2>
+          <p><span>{DCI}</span> kcal</p>
         </div>
 
         <div className="food-intake">

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import Swal from 'sweetalert2'; // ✅ Import SweetAlert2
 import '../styles/style1.css';
 
 const Login = () => {
@@ -34,6 +35,24 @@ const Login = () => {
     document.getElementById('login-form').style.display = 'block';
   };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate('/HeightAndWeight');
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Registration Successful!',
+      text: 'You can login now.',
+      confirmButtonText: 'OK',
+    }).then(() => {
+      navigate('/login');
+    });
+  };
+
   return (
     <div>
       <div className="navbar">
@@ -49,25 +68,21 @@ const Login = () => {
         </div>
 
         <div id="login-form">
-          <form>
-            <input type="text" placeholder="Enter email or username" />
-            <input type="password" placeholder="Enter password" />
-            <Link to="/height-and-weight">
-              <button type="button" className="btn login">login</button>
-            </Link>
+          <form onSubmit={handleLogin}>
+            <input type="text" placeholder="Enter email or username" required />
+            <input type="password" placeholder="Enter password" required />
+            <button type="submit" className="btn login">login</button>
             <p><a href="#">Forgotten account</a></p>
             <hr />
           </form>
         </div>
 
         <div id="signup-form">
-          <form>
-            <input type="email" placeholder="Enter your email" />
-            <input type="text" placeholder="Choose username" />
-            <input type="password" placeholder="Create password" />
-            <Link to="/height-and-weight">
-              <button type="button" className="btn signup">create account</button>
-            </Link>
+          <form onSubmit={handleSignup}>
+            <input type="email" placeholder="Enter your email" required />
+            <input type="text" placeholder="Choose username" required />
+            <input type="password" placeholder="Create password" required />
+            <button type="submit" className="btn signup">create account</button>
             <p>
               Clicking <strong>create account</strong> means that you agree to our <a href="#">terms of services</a>.
             </p>
