@@ -13,6 +13,8 @@ import Contact from './components/contact.js';
 import Service from './components/service.js';
 import Login from './components/login.js';
 import Options from './components/options.js';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/Options" element={<Options />} />
         <Route path="/MainPage" element={<MainPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/password-reset" element={<ResetPassword />} />
         
       </Routes>
     </Router>

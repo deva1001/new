@@ -124,7 +124,7 @@ const Login = () => {
               required
             />
             <button type="submit" className="btn login">login</button>
-            <p><a href="#">Forgotten account</a></p>
+            <p><Link to="/forgot-password">Forgotten password?</Link></p>
             <hr />
           </form>
         </div>

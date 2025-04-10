@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, SECRET_KEY);
-    req.user = verified;
+    req.user = verified; // now req.user.id will be accessible
     next();
   } catch (err) {
     res.status(401).json({ message: 'Invalid or expired token' });
