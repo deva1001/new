@@ -9,6 +9,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+
+const userDataRoutes = require('./routes/userData');
+app.use('/api/userData', userDataRoutes);
+
+
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes); // This enables /api/auth/register and /api/auth/login
 

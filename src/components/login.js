@@ -54,9 +54,13 @@ const Login = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginData),
       });
-
+  
       const data = await response.json();
+  
       if (response.ok) {
+        // 🔥 Save the token to localStorage
+        localStorage.setItem('token', data.token); // <- Assuming token is returned as `data.token`
+  
         Swal.fire('Success!', 'Login successful', 'success');
         navigate('/HeightAndWeight');
       } else {
@@ -66,6 +70,7 @@ const Login = () => {
       Swal.fire('Error', 'Server error. Please try again later.', 'error');
     }
   };
+  
 
   const handleSignup = async (e) => {
     e.preventDefault();
