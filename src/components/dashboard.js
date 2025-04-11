@@ -6,7 +6,7 @@ import {
   FaPlus,
   FaUser,
 } from "react-icons/fa";
-import "./dashboard.css"; // We'll extract the CSS to this file
+import "../dashboard.css"; // We'll extract the CSS to this file
 
 const Dashboard = () => {
   return (
