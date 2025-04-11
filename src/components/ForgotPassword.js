@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp });
+      const res = await axios.post(`${BASE_URL}/api/auth/verify-otp`, { email, otp });
       Swal.fire('Success', res.data.message, 'success');
       setToken(res.data.token);
       setStep(3);
@@ -39,7 +39,7 @@ const ForgotPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/reset-password', {
+      const res = await axios.post(`${BASE_URL}/api/auth/reset-password`, {
         token,
         newPassword
       });
