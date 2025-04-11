@@ -119,7 +119,7 @@ const HeightAndWeight = () => {
           <h1>Welcome to Calorie Tracker</h1>
           <h2>Your data is <span className="safe-text">safe</span> with us.</h2>
           <p>We do not share your personal health data with anyone.</p>
-          <img src="/images/safe-data.png" alt="Health Illustration" style={{ width: '80%', marginTop: '20px' }} />
+          <img src="/health.png" alt="Health Illustration" style={{ width: '20%', marginTop: '20px' }} />
         </div>
 
         <div className="form-panel">
