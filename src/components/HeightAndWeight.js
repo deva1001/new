@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import '../styles/height.css';
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const HeightAndWeight = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const HeightAndWeight = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get('http://localhost:5000/api/userData', {
+        const response = await axios.get(`${BASE_URL}/api/userData`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -84,7 +85,7 @@ const HeightAndWeight = () => {
     if (!result.isConfirmed) return;
 
     try {
-      await axios.post('http://localhost:5000/api/userData', fullData, {
+      await axios.post(`${BASE_URL}/api/userData`, fullData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ForgotPassword.css';
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const ForgotPassword = () => {
   const [step, setStep] = useState(1);
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      const res = await axios.post(`${BASE_URL}/api/auth/forgot-password`, { email });
       Swal.fire('Success', res.data.message, 'success');
       setStep(2);
     } catch (err) {
