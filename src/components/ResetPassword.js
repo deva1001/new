@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import '../styles/style1.css';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
