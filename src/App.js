@@ -15,7 +15,7 @@ import Login from './components/login.js';
 import Options from './components/options.js';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-
+import Dashboard from './components/dashboard.js';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/password-reset" element={<ResetPassword />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         
       </Routes>
     </Router>
