@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const UserData = require('../models/UserData');
-const auth = require('../middleware/auth'); // <-- make sure path is correct
+const auth = require('../middleware/auth'); 
 
-// GET user data (protected route)
+
 router.get('/', auth, async (req, res) => {
   try {
-    const data = await UserData.findOne({ userId: req.user.id }); // req.user.id from token
+    const data = await UserData.findOne({ userId: req.user.id }); 
     if (!data) return res.status(404).json({ message: 'No data found for this user' });
     res.status(200).json(data);
   } catch (err) {
@@ -14,7 +14,7 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// POST or update user data (protected route)
+
 router.post('/', auth, async (req, res) => {
   const { height, weight, age, goal, DCI } = req.body;
   const userId = req.user.id;

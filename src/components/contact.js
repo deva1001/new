@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com';
 
 const Contact = () => {
   useEffect(() => {
-    emailjs.init("cHILYjU9wzfOyA9Vi"); // Replace with your EmailJS User ID
+    emailjs.init("cHILYjU9wzfOyA9Vi"); 
 
     const form = document.getElementById('contactForm');
     if (form) {

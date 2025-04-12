@@ -3,12 +3,12 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const authMiddleware = require('../middleware/auth');
-const transporter = require('../mailer'); // Nodemailer transporter
+const transporter = require('../mailer'); 
 
 const router = express.Router();
 const SECRET_KEY = process.env.JWT_SECRET || 'your_jwt_secret_key';
 
-// In-memory OTP store: { email: { otp, expiresAt } }
+
 const otpStore = {};
 
 // -------------------- REGISTER --------------------
@@ -89,11 +89,11 @@ router.post('/verify-otp', async (req, res) => {
   if (Date.now() > record.expiresAt) return res.status(400).json({ message: 'OTP expired' });
   if (otp !== record.otp) return res.status(400).json({ message: 'Invalid OTP' });
 
-  // Issue temporary token after successful OTP verification
+ 
   const user = await User.findOne({ email });
   const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '10m' });
 
-  // Invalidate OTP
+  
   delete otpStore[email];
 
   res.json({ message: 'OTP verified successfully', token });

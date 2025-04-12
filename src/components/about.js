@@ -7,7 +7,7 @@ const About = () => {
     <>
       <header>
         <div className="logo">
-          {/* Add logo if needed */}
+          {}
         </div>
         <nav>
           <ul>

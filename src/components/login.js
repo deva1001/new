@@ -59,8 +59,8 @@ const Login = () => {
       const data = await response.json();
   
       if (response.ok) {
-        // 🔥 Save the token to localStorage
-        localStorage.setItem('token', data.token); // <- Assuming token is returned as `data.token`
+        
+        localStorage.setItem('token', data.token); 
   
         Swal.fire('Success!', 'Login successful', 'success');
         navigate('/HeightAndWeight');
@@ -85,7 +85,7 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         Swal.fire('Success!', 'Registration successful. You can log in now.', 'success');
-        toggleLogin(); // switch to login
+        toggleLogin(); 
       } else {
         Swal.fire('Error', data.message || 'Registration failed', 'error');
       }

@@ -48,7 +48,7 @@ const ForgotPassword = () => {
       setEmail('');
       setOtp('');
       setNewPassword('');
-      navigate('/login'); // Redirect to login after success
+      navigate('/login'); 
     } catch (err) {
       Swal.fire('Error', err.response?.data?.message || 'Reset failed', 'error');
     }

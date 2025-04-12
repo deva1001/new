@@ -14,8 +14,8 @@ const HeightAndWeight = () => {
   });
 
   const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const [isEditable, setIsEditable] = useState(false); // Initially not editable
-  const [isEditing, setIsEditing] = useState(false);   // Flag for update mode
+  const [isEditable, setIsEditable] = useState(false); 
+  const [isEditing, setIsEditing] = useState(false);   
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -24,7 +24,7 @@ const HeightAndWeight = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Fetch existing data on mount
+ 
   useEffect(() => {
     const fetchData = async () => {
       if (!token) return;

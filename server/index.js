@@ -15,8 +15,7 @@ app.use('/api/userData', userDataRoutes);
 
 
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes); // This enables /api/auth/register and /api/auth/login
-
+app.use('/api/auth', authRoutes); 
 app.get('/', (req, res) => {
   res.send('API is running...');
 });

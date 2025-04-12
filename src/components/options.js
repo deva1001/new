@@ -18,7 +18,7 @@ function Login() {
   const handleSignupToggle = () => setIsSignup(true);
 
   const goBack = () => {
-    window.location.href = 'PreviousPage.html'; // Change if needed
+    window.location.href = 'PreviousPage.html'; 
   };
 
   return (
